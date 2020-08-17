@@ -24,11 +24,6 @@ public class Hardware
     public DcMotor  motor_l   = null;
     public DcMotor  motor_r  = null;
 
-    public ColorSensor sensor_color;
-
-    public DigitalChannel sensor_touch;
-
-    public static final double MID_SERVO =  0.5 ;
     public static final double MAX_POWER = 0.7;
 
     /* local OpMode members. */
@@ -46,13 +41,7 @@ public class Hardware
         // Define and Initialize stuff
         motor_l  = hwMap.get(DcMotor.class, "left_drive");
         motor_r  = hwMap.get(DcMotor.class, "right_drive");
-
-        servo  = hwMap.get(Servo.class, "servo");
-
-        sensor_color = hwMap.get(ColorSensor.class, "color_distance_sensor");
-
-        sensor_touch = hwMap.get(DigitalChannel.class, "touch_sensor");
-
+        
         // Motors
 
         // Set direction
@@ -67,9 +56,6 @@ public class Hardware
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         motor_l.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motor_r.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-        // set the digital channel to input.
-        sensor_touch.setMode(DigitalChannel.Mode.INPUT);
 
 
     }
