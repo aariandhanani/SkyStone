@@ -19,13 +19,12 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 public class Hardware
 {
     /* Public OpMode members. */
-    public DcMotor  leftDrive   = null;
-    public DcMotor  rightDrive  = null;
-    public Servo    servo    = null;
+    public DcMotor  motor_l   = null;
+    public DcMotor  motor_r  = null;
 
-    public ColorSensor sensorColor;
+    public ColorSensor sensor_color;
 
-    public DigitalChannel digitalTouch;
+    public DigitalChannel sensor_touch;
 
     public static final double MID_SERVO =  0.5 ;
     public static final double MAX_POWER = 0.7;
@@ -43,39 +42,32 @@ public class Hardware
         hwMap = ahwMap;
 
         // Define and Initialize stuff
-        leftDrive  = hwMap.get(DcMotor.class, "left_drive");
-        rightDrive  = hwMap.get(DcMotor.class, "right_drive");
+        motor_l  = hwMap.get(DcMotor.class, "left_drive");
+        motor_r  = hwMap.get(DcMotor.class, "right_drive");
 
         servo  = hwMap.get(Servo.class, "servo");
 
-        sensorColor = hwMap.get(ColorSensor.class, "color_distance_sensor");
+        sensor_color = hwMap.get(ColorSensor.class, "color_distance_sensor");
 
-        digitalTouch = hwMap.get(DigitalChannel.class, "touch_sensor");
+        sensor_touch = hwMap.get(DigitalChannel.class, "touch_sensor");
 
         // Motors
 
         // Set direction
-        leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        motor_l.setDirection(DcMotor.Direction.FORWARD);
+        motor_r.setDirection(DcMotor.Direction.REVERSE);
 
         // Set all motors to zero power
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
+        motor_l.setPower(0);
+        motor_r.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-        // Servos
-
-        // Define and initialize installed servos.
-        servo.setPosition(MID_SERVO);
-
-        // Distance sensor
+        motor_l.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motor_r.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // set the digital channel to input.
-        digitalTouch.setMode(DigitalChannel.Mode.INPUT);
+        sensor_touch.setMode(DigitalChannel.Mode.INPUT);
 
 
     }
