@@ -1,4 +1,6 @@
-//This is for the programming week 1 assignment. Please note that I took the demo hardware class and changed it to have the necessary sensors (besides the import which was not changed)
+//This is for the programming week 1 assignment. Please note that I took the demo hardware class and changed it to have the necessary sensors (besides the import which was not changed).
+//Aarian Dhanani
+//8/17/2020
 
 package org.firstinspires.ftc.teamcode;
 
@@ -18,7 +20,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class Hardware
 {
-    /* Public OpMode members. */
+    //initialize
     public DcMotor  motor_l   = null;
     public DcMotor  motor_r  = null;
 
@@ -45,14 +47,6 @@ public class Hardware
         motor_l  = hwMap.get(DcMotor.class, "left_drive");
         motor_r  = hwMap.get(DcMotor.class, "right_drive");
 
-        servo  = hwMap.get(Servo.class, "servo");
-
-        sensor_color = hwMap.get(ColorSensor.class, "color_distance_sensor");
-
-        sensor_touch = hwMap.get(DigitalChannel.class, "touch_sensor");
-
-        // Motors
-
         // Set direction
         motor_l.setDirection(DcMotor.Direction.FORWARD);
         motor_r.setDirection(DcMotor.Direction.REVERSE);
@@ -65,10 +59,6 @@ public class Hardware
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         motor_l.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motor_r.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-        // set the digital channel to input.
-        sensor_touch.setMode(DigitalChannel.Mode.INPUT);
-
 
     }
 }
